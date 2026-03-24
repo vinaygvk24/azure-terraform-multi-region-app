@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My App</title>
+</head>
+<body>
+    <h1>Random String Generator 🚀</h1>
+
+    <button onclick="callApi()">Get Random</button>
+    <p id="result"></p>
+
+    <script>
+        async function callApi() {
+            const res = await fetch("/api/random");
+            const data = await res.text();
+            document.getElementById("result").innerText = data;
+        }
+    </script>
+</body>
+</html>
