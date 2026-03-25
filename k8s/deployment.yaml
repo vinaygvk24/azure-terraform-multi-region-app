@@ -17,6 +17,8 @@ spec:
         image: myflaskacr01.azurecr.io/myflaskapp:1.0
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: acr-secret
 ---
 apiVersion: v1
 kind: Service
