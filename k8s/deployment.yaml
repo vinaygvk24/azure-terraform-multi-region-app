@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myflaskapp
-        image: myflaskacr01.azurecr.io/myflaskapp:1.0
+        image: myflaskacr01.azurecr.io/myflaskapp:latest
         ports:
         - containerPort: 5000
       imagePullSecrets:
