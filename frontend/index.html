@@ -11,7 +11,7 @@
 
     <script>
         async function callApi() {
-            const res = await fetch("http://52.142.21.155/api/random");
+            const res = await fetch("http://52.142.21.155");
             const data = await res.text();
             document.getElementById("result").innerText = data;
         }
