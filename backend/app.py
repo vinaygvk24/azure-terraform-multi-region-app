@@ -5,6 +5,10 @@ import random
 app = Flask(__name__)
 CORS(app)  # allow frontend to call backend
 
+@app.route('/api/health')
+def health():
+    return "OK", 200
+
 @app.route("/")
 def home():
     return "hi vinay"
