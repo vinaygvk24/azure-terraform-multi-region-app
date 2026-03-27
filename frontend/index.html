@@ -11,7 +11,7 @@
     <script>
         async function callApi() {
             // THIS IS WHERE YOUR FETCH GOES
-            const res = await fetch("https://myfrontendstorage01.z13.web.core.windows.net/api/random");
+            const res = await fetch("https://52.142.21.155/api/random");
             const data = await res.text();
             document.getElementById("result").innerText = data;
         }
