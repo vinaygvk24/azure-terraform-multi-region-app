@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My App</title>
+    <title>Random String App</title>
 </head>
 <body>
-    <h1>Random String Generator 🚀</h1>
-
-    <button onclick="callApi()">Get Random</button>
+    <h1>Random String Generator</h1>
+    <button id="getRandom">Get Random String</button>
     <p id="result"></p>
 
     <script>
         async function callApi() {
-            const res = await fetch("http://52.142.21.155");
+            // THIS IS WHERE YOUR FETCH GOES
+            const res = await fetch("https://myfrontendstorage01.z13.web.core.windows.net/api/random");
             const data = await res.text();
             document.getElementById("result").innerText = data;
         }
+
+        document.getElementById("getRandom").addEventListener("click", callApi);
     </script>
 </body>
 </html>
