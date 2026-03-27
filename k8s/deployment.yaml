@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myflaskapp
-        image: myflaskacr01.azurecr.io/myflaskapp:latest
+        image: myflaskacr01.azurecr.io/myflaskapp:1.0
         ports:
         - containerPort: 5000
       imagePullSecrets:
@@ -25,7 +25,7 @@ kind: Service
 metadata:
   name: myflaskapp-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: myflaskapp
   ports:
