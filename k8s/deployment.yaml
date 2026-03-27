@@ -13,23 +13,24 @@ spec:
         app: myflaskapp
     spec:
       containers:
-      - name: myflaskapp
-        image: myflaskacr01.azurecr.io/myflaskapp:1.2
-	imagePullPolicy: Always
-        ports:
-        - containerPort: 5000
+        - name: myflaskapp
+          image: myflaskacr01.azurecr.io/myflaskapp:1.2
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
       imagePullSecrets:
-      - name: acr-secret
+        - name: acr-secret
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: myflaskapp-service
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: myflaskapp
   ports:
     - protocol: TCP
-      port: 80
+      port: 80        # This is the port exposed internally to AGW
       targetPort: 5000
+      nodePort: 30695 # NodePort for AGW to hit
