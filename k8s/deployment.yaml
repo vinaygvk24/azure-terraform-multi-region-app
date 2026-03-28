@@ -25,12 +25,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: myflaskapp-service
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"  # 🔒 INTERNAL LB
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: myflaskapp
   ports:
     - protocol: TCP
-      port: 80        # This is the port exposed internally to AGW
+      port: 80
       targetPort: 5000
-      nodePort: 30695 # NodePort for AGW to hit
