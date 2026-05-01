@@ -1,11 +1,11 @@
 variable "location" {
-  default = "East US"
+  default = "Central India"
 }
 
 variable "resource_group_name" {
-  default = "rg-multiregion-demo"
+  default = "rg-multiregion-demo-ci"
 }
 
 variable "acr_name" {
-  default = "acrvinaymultiregion01"
+  default = "acrvinaymulti01ci"
 }
