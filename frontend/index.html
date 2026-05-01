@@ -2,18 +2,85 @@
 <html>
 <head>
     <title>Random String App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 300px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #4facfe;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #007bff;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        .loader {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Random String Generator</h1>
-    <button id="getRandom">Get Random String</button>
-    <p id="result"></p>
+    <div class="container">
+        <h1>Random Generator</h1>
+        <button id="getRandom">Generate</button>
+        <p id="result">Click button</p>
+        <p class="loader" id="loader">Loading...</p>
+    </div>
 
     <script>
         async function callApi() {
-            // THIS IS WHERE YOUR FETCH GOES
-            const res = await fetch("https://52.142.21.155/api/random");
-            const data = await res.text();
-            document.getElementById("result").innerText = data;
+            document.getElementById("loader").style.display = "block";
+            document.getElementById("result").innerText = "";
+
+            try {
+                const res = await fetch("/api/random");
+                const data = await res.text();
+
+                document.getElementById("result").innerText = data;
+            } catch (err) {
+                document.getElementById("result").innerText = "Error!";
+            }
+
+            document.getElementById("loader").style.display = "none";
         }
 
         document.getElementById("getRandom").addEventListener("click", callApi);
