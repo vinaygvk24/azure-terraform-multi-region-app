@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: myflaskapp
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: myflaskapp
@@ -14,12 +14,10 @@ spec:
     spec:
       containers:
         - name: myflaskapp
-          image: myacr.azurecr.io/myflaskapp:v1
+          image: acrvinaymultiregion01.azurecr.io/random-api:v1
           ports:
             - containerPort: 5000
-          imagePullPolicy: Always
-      imagePullSecrets:
-        - name: acr-secret
+
 ---
 apiVersion: v1
 kind: Service
