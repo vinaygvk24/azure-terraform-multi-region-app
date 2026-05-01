@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: myflaskapp
-          image: acrvinaymultiregion01.azurecr.io/random-api:v1
+          image: acrvinaymulti01ci.azurecr.io/random-api:latest
           ports:
             - containerPort: 5000
 
