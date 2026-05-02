@@ -11,7 +11,11 @@ variable "aks_name" {
 }
 
 variable "acr_name" {
-  default = "acrvinaymultiregion01"
+  default = "acrvinaymulti01ci"
+}
+
+variable "acr_resource_group_name" {
+  default = "rg-multiregion-demo-ci"
 }
 
 variable "vm_size" {
