@@ -23,7 +23,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
 resource "azurerm_role_assignment" "acr_pull" {
   principal_id                     = azurerm_kubernetes_cluster.aks.kubelet_identity[0].object_id
   role_definition_name             = "AcrPull"
-  scope                            = "/subscriptions/${data.azurerm_client_config.current.subscription_id}/resourceGroups/rg-multiregion-demo/providers/Microsoft.ContainerRegistry/registries/${var.acr_name}"
+  scope                            = "/subscriptions/${data.azurerm_client_config.current.subscription_id}/resourceGroups/${var.acr_resource_group_name}/providers/Microsoft.ContainerRegistry/registries/${var.acr_name}"
 }
 
 data "azurerm_client_config" "current" {}
