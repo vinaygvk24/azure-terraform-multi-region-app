@@ -15,8 +15,12 @@ spec:
       containers:
         - name: myflaskapp
           image: acrvinaymulti01ci.azurecr.io/random-api:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
+          env:
+            - name: REGION
+              value: "Central India"
 
 ---
 apiVersion: v1
