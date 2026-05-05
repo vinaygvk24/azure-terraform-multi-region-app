@@ -20,7 +20,7 @@ spec:
             - containerPort: 5000
           env:
             - name: REGION
-              value: "Central India"
+              value: "South India"
 
 ---
 apiVersion: v1
